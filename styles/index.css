@@ -12,11 +12,11 @@
 .img-container:hover .overlay {
   opacity: 1;
 }
-.delhi-img,
-.goa-img,
-.hyderabad-img,
-.kolkata-img {
+
+.core_main-img {
   display: block;
+  height: 150px;
+  width: 150px;
   border-radius: 25%;
   box-shadow: 10px 10px 10px grey;
 }
