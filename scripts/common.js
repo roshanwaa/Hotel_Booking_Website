@@ -5,15 +5,16 @@ class MyHeader extends HTMLElement {
             class="logo-img"
             src="../assests/images/logo.png"
             alt="logo" /></a>
-
+            
                 <button
                     type="button"
                     class="login-tag btn btn-light"
                     data-bs-toggle="modal"
                     data-bs-target="#loginModal"
                 >
-                    Login
-                </button>`;
+                 Login
+                </button>
+                `;
   }
 }
 
@@ -58,65 +59,28 @@ class MyFooter extends HTMLElement {
         </div>
       </div>
     </div>
+
+
     <!-- Login Modal -->
-    <div
-      class="modal fade"
-      id="loginModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
+   <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Please Login</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <!-- <form action="">
-                        <label for="uname">Username:  </label>
-                        <input type="text" name="uname" id="uname">
-                        <br>
-                        <label for="pass">Password:</label>
-                        <input type="password" name="pass" id="pass">
-                    </form> -->
-            <form>
+            <form id= "login-form">
               <div class="mb-3">
-                <label
-                  for="exampleInputEmail1"
-                  class="form-label"
-                  placeholder="Enter User Name"
-                  >Username</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="uname"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter Username"
-                />
+                <label for="exampleInputEmail1" class="form-label" placeholder="Enter User Name">Username</label>
+                <input type="text" class="form-control" id="uname" aria-describedby="emailHelp"
+                  placeholder="Enter Username" required/>
               </div>
               <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label"
-                  >Password</label
-                >
-                <input
-                  type="password"
-                  class="form-control"
-                  id="psw"
-                  placeholder="Enter Password"
-                />
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="psw" placeholder="Enter Password" required />
               </div>
-              <button
-                type="submit"
-                onclick="login()"
-                class="btn btn-primary d-grid gap-2 col-2 mx-auto"
-              >
+              <button type="submit" onclick="login()" id="loginBtn" class="btn btn-primary d-grid gap-2 col-2 mx-auto" data-bs-dismiss="modal">
                 Login
               </button>
             </form>
@@ -124,6 +88,8 @@ class MyFooter extends HTMLElement {
         </div>
       </div>
     </div>
+
+
     <!--Contact Modal -->
     <div
       class="modal fade"
