@@ -12,9 +12,8 @@ class MyHeader extends HTMLElement {
                     data-bs-toggle="modal"
                     data-bs-target="#loginModal"
                 >
-                 Login
-                </button>
-                `;
+                 LOGIN
+                </button>`;
   }
 }
 
@@ -80,7 +79,7 @@ class MyFooter extends HTMLElement {
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input type="password" class="form-control" id="psw" placeholder="Enter Password" required />
               </div>
-              <button type="submit" onclick="login()" id="loginBtn" class="btn btn-primary d-grid gap-2 col-2 mx-auto" data-bs-dismiss="modal">
+              <button type="submit" id="loginBtn" class="btn btn-primary d-grid gap-2 col-2 mx-auto" data-bs-dismiss="modal">
                 Login
               </button>
             </form>
@@ -138,3 +137,26 @@ class MyFooter extends HTMLElement {
 }
 
 customElements.define('my-footer', MyFooter);
+
+const storeData = document.getElementById('loginBtn');
+
+// **********************************
+storeData.addEventListener('click', () => {
+  let user_name = document.getElementById('uname').value;
+  let user_psw = document.getElementById('psw').value;
+
+  localStorage.setItem('Username', user_name);
+  localStorage.setItem('Password', user_psw);
+
+  // * Retrieve
+  const nameStore = localStorage.getItem('Username');
+  const pswStore = localStorage.getItem('password');
+
+  if (nameStore !== user_name.value && pswStore !== user_psw.value) {
+    alert('login is successful');
+  }
+  if (nameStore == user_name.value && pswStore == user_psw.value) {
+    alert('Please enter your username and password');
+  }
+});
+
