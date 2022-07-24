@@ -17,8 +17,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
     crossorigin="anonymous"></script>
-
-
 </head>
 
 <body>
@@ -29,8 +27,9 @@
       <form class="search-bar">
         <input class="search_bar" type="text" placeholder="City" />
       </form>
-      <div id="viewMore">
-        <div class="core-img">
+
+      <div class=" showContent ">
+        <div class="core-img visible-content">
           <a href="list.html">
             <div class="img-container">
               <img class="core_main-img" src="https://media-cdn.tripadvisor.com/media/photo-s/15/33/fe/a2/new-delhi.jpg"
@@ -64,17 +63,9 @@
               <div class="text">Kolkata</div>
             </div>
           </div>
-
-          <div class="btn-view_more">
-            <div class="anchor">
-              <button onclick="expand()" class="btn btn-secondary" id="viewMore">
-                View More
-              </button>
-            </div>
-          </div>
-
         </div>
-        <div class="core-img">
+
+        <div class="core-img invisible-content">
           <a href="list.html">
             <div class="img-container">
               <img class="core_main-img"
@@ -109,9 +100,12 @@
             </div>
           </div>
         </div>
+        <div class="anchor btn-view" id="btn-view_more">
+          <button onclick="expand()" class="more-less btn btn-secondary btn-view_more" id="view_more">
+            View More
+          </button>
+        </div>
       </div>
-
-
     </section>
     <my-footer></my-footer>
   </div>
