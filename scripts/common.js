@@ -1,3 +1,13 @@
+let disableLoader = () => {
+  document.getElementById('loader').style.visibility = 'hidden';
+  document.getElementsByTagName('body')[0].style.visibility = 'visible';
+};
+
+let displayLoader = () => {
+  document.getElementsByTagName('body')[0].style.visibility = 'hidden';
+  document.getElementById('loader').style.visibility = 'visible';
+};
+
 class MyHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `<a href="index.html" class="header-logo">
@@ -5,12 +15,13 @@ class MyHeader extends HTMLElement {
             class="logo-img"
             src="../assests/images/logo.png"
             alt="logo" /></a>
-            
-                <button
+                  <button
+                    id="loginBtn"
                     type="button"
-                    class="login-tag btn btn-light"
+                    class="btn btn-light"
                     data-bs-toggle="modal"
                     data-bs-target="#loginModal"
+                    onclick="mainLogin(event)"
                 >
                  LOGIN
                 </button>`;
@@ -71,15 +82,14 @@ class MyFooter extends HTMLElement {
           <div class="modal-body">
             <form id= "login-form">
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label" placeholder="Enter User Name">Username</label>
-                <input type="text" class="form-control" id="uname" aria-describedby="emailHelp"
-                  placeholder="Enter Username" required/>
+                  <label for="username" class="form-label" placeholder="Enter User Name">Username: </label>
+                  <input type="text" class="form-control" id="usr-name" name="username" placeholder="Enter Username" required />
               </div>
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="psw" placeholder="Enter Password" required />
+                <input type="password" id="usr-psw"  class="form-control" id="psw" placeholder="Enter Password" required />
               </div>
-              <button type="submit" id="loginBtn" class="btn btn-primary d-grid gap-2 col-2 mx-auto" data-bs-dismiss="modal">
+              <button type="submit" id="login-modal-button" onclick="login(event)" class="btn btn-primary d-grid gap-2 col-2 mx-auto" data-bs-dismiss="modal">
                 Login
               </button>
             </form>
@@ -138,25 +148,53 @@ class MyFooter extends HTMLElement {
 
 customElements.define('my-footer', MyFooter);
 
-const storeData = document.getElementById('loginBtn');
+let login_Btn = document.getElementById('loginBtn');
+let login_modal_button = document.getElementById('login-modal-button');
+let usrName = document.getElementById('usr-name');
+let usrPsw = document.getElementById('usr-psw');
 
-// **********************************
-storeData.addEventListener('click', () => {
-  let user_name = document.getElementById('uname').value;
-  let user_psw = document.getElementById('psw').value;
-
-  localStorage.setItem('Username', user_name);
-  localStorage.setItem('Password', user_psw);
-
-  // * Retrieve
-  const nameStore = localStorage.getItem('Username');
-  const pswStore = localStorage.getItem('password');
-
-  if (nameStore !== user_name.value && pswStore !== user_psw.value) {
-    alert('login is successful');
-  }
-  if (nameStore == user_name.value && pswStore == user_psw.value) {
-    alert('Please enter your username and password');
+login_Btn.addEventListener('click', (e) => {
+  if (localStorage.getItem('isLogin') === 'true') {
+    localStorage.setItem('isLogin', 'false');
+    location.reload();
   }
 });
 
+login_modal_button.addEventListener('click', (e) => {
+  localStorage.setItem('username', 'admin');
+  localStorage.setItem('password', 'admin');
+  localStorage.setItem('isLogin', 'false');
+
+  // here we are setting the func. for login (e)
+  e.preventDefault();
+  if (
+    usrName.value === localStorage.getItem('username') &&
+    usrPsw.value === localStorage.getItem('password')
+  ) {
+    localStorage.setItem('isLogin', 'true');
+    alert('Successfully logged in!');
+    login_Btn.dataset.target = '';
+    login_Btn.innerHTML = 'LOGOUT';
+    location.reload();
+  } else {
+    alert('Incorrect credentials! Login failed!');
+    // clearing values of username & password fields from login modal
+    usrName.value = '';
+    usrPsw.value = '';
+  }
+});
+
+let isLogin = localStorage.getItem('isLogin');
+let loginElement = document.getElementById('login');
+
+let checkLogin = () => {
+  if (!isLogin || isLogin === 'false') {
+    localStorage.clear();
+    login_Btn.dataset.target = '#login-modal';
+    login_Btn.innerText = 'LOGIN';
+  } else if (isLogin === 'true') {
+    login_Btn.dataset.target = '';
+    login_Btn.innerText = 'LOGOUT';
+  }
+};
+checkLogin();

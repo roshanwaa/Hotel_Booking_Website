@@ -91,6 +91,16 @@
 } */
 
 
+#loginBtn {
+  margin-right: 2%;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+
 
 
 .showContent .more-less:focus {
