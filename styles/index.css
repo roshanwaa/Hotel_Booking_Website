@@ -4,14 +4,31 @@
 }
 
 .core-img {
-  margin: 4rem auto;
   display: flex;
-  align-items: center;
+  align-items: center;  
   justify-content: space-evenly;
+  padding: 4% 0%;
+}
+
+.city-image {
+  height: 150px;
+  width: 150px;
+  border-radius: 25%;
+  box-shadow: 10px 10px 10px grey;
 }
 
 .img-container:hover .overlay {
   opacity: 1;
+}
+
+#view-more {
+  margin-bottom: 7%;
+  display: flex;
+  justify-content: center;
+}
+
+#view-more-city-cards {
+  display: none;
 }
 
 .core_main-img {
@@ -98,15 +115,4 @@
 #login-form {
   display: flex;
   flex-direction: column;
-}
-
-
-
-
-.showContent .more-less:focus {
-  outline: unset;
-}
-
-.showContent {
-  overflow-x: hidden;
 }

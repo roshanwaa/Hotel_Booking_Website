@@ -24,48 +24,50 @@
     <my-header class="header" id="header"></my-header>
 
     <section class="content">
-      <form class="search-bar">
+      <form class="search-bar" autocomplete="off">
         <input class="search_bar" type="text" placeholder="City" />
       </form>
 
-      <div class=" showContent ">
-        <div class="core-img visible-content">
-          <a href="list.html">
-            <div class="img-container">
-              <img class="core_main-img" src="https://media-cdn.tripadvisor.com/media/photo-s/15/33/fe/a2/new-delhi.jpg"
-                alt="Delhi" />
-              <div class="overlay">
-                <div class="text">Delhi</div>
-              </div>
-            </div>
-          </a>
-
+      <!-- <div class=" showContent "> -->
+      <div class="core-img">
+        <a href="list.html">
           <div class="img-container">
-            <img src="https://media-cdn.tripadvisor.com/media/photo-s/15/33/fc/f0/goa.jpg" alt="Goa"
-              class="core_main-img" />
+            <img class="core_main-img" src="https://media-cdn.tripadvisor.com/media/photo-s/15/33/fe/a2/new-delhi.jpg"
+              alt="Delhi" />
             <div class="overlay">
-              <div class="text">Goa</div>
+              <div class="text">Delhi</div>
             </div>
           </div>
+        </a>
 
-          <div class="img-container">
-            <img src="https://media-cdn.tripadvisor.com/media/photo-s/0f/98/f7/df/charminar.jpg" alt="Hyderabad"
-              class="core_main-img" />
-            <div class="overlay">
-              <div class="text">Hyderabad</div>
-            </div>
-          </div>
-
-          <div class="img-container">
-            <img src="https://media-cdn.tripadvisor.com/media/photo-s/15/33/fe/ac/kolkata-calcutta.jpg" alt="Kolkata"
-              class="core_main-img" />
-            <div class="overlay">
-              <div class="text">Kolkata</div>
-            </div>
+        <div class="img-container">
+          <img src="https://media-cdn.tripadvisor.com/media/photo-s/15/33/fc/f0/goa.jpg" alt="Goa"
+            class="core_main-img" />
+          <div class="overlay">
+            <div class="text">Goa</div>
           </div>
         </div>
 
-        <div class="core-img invisible-content">
+        <div class="img-container">
+          <img src="https://media-cdn.tripadvisor.com/media/photo-s/0f/98/f7/df/charminar.jpg" alt="Hyderabad"
+            class="core_main-img" />
+          <div class="overlay">
+            <div class="text">Hyderabad</div>
+          </div>
+        </div>
+
+        <div class="img-container">
+          <img src="https://media-cdn.tripadvisor.com/media/photo-s/15/33/fe/ac/kolkata-calcutta.jpg" alt="Kolkata"
+            class="core_main-img" />
+          <div class="overlay">
+            <div class="text">Kolkata</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="view-more-city-cards">
+        <div class="core-img">
           <a href="list.html">
             <div class="img-container">
               <img class="core_main-img"
@@ -100,12 +102,17 @@
             </div>
           </div>
         </div>
-        <div class="anchor btn-view" id="btn-view_more">
-          <button onclick="expand()" class="more-less btn btn-secondary btn-view_more" id="view_more">
+      </div>
+
+
+      <div class="anchor btn-view">
+        <a id="view-more">
+          <button class="more-Btn btn btn-secondary btn-view_more" id="view_more">
             View More
           </button>
-        </div>
+        </a>
       </div>
+
     </section>
     <my-footer></my-footer>
   </div>
