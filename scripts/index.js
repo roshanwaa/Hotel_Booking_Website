@@ -38,13 +38,11 @@ let search = () => {
     'input',
     debounce(function (e) {
       let newValue = this.value;
-
       let xhr = new XMLHttpRequest();
       if (!newValue || newValue.length < 3) {
         closeAllLists();
         return false;
       }
-
       xhr.addEventListener('readystatechange', function () {
         if (this.readyState === this.DONE) {
           closeAllLists();
@@ -99,7 +97,6 @@ let search = () => {
       xhr.send();
     }, 500)
   );
-
   let closeAllLists = (elmnt) => {
     let x = document.getElementsByClassName('search-items');
     for (let i = 0; i < x.length; i++) {
@@ -108,11 +105,9 @@ let search = () => {
       }
     }
   };
-
   document.addEventListener('click', (e) => {
     closeAllLists(e.target);
   });
 };
-
 search();
 disableLoader();
